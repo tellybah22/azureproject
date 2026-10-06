@@ -1,0 +1,15 @@
+{
+	"name": "df-azureproject-tbah",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "francecentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "37f062f8-f972-4920-b612-f000f30f522f",
+		"tenantId": "2c05abb6-a44d-4c78-9e19-d62c9b44a095"
+	}
+}
