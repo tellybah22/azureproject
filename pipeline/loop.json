@@ -1,0 +1,47 @@
+{
+	"name": "loop",
+	"properties": {
+		"activities": [
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.list_table",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"list_table": {
+				"type": "array",
+				"defaultValue": [
+					{
+						"tableName": "DimArtist",
+						"cdcCol": "update_at"
+					},
+					{
+						"tableName": "DimDate",
+						"cdcCol": "date"
+					},
+					{
+						"tableName": "DimTrack",
+						"cdcCol": "update_at"
+					},
+					{
+						"tableName": "DimUser",
+						"cdcCol": "update_at"
+					},
+					{
+						"tableName": "FactStream",
+						"cdcCol": "stream_timestamp"
+					}
+				]
+			}
+		},
+		"annotations": []
+	}
+}
