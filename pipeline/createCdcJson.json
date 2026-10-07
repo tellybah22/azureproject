@@ -46,6 +46,10 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
+					"items": {
+						"value": "@activity('getAllTableProperties').output.value",
+						"type": "Expression"
+					},
 					"activities": [
 						{
 							"name": "cdcTables",
@@ -91,7 +95,13 @@
 							"outputs": [
 								{
 									"referenceName": "dsTableCdc",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"tableProperty": {
+											"value": "@item().tableName",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}

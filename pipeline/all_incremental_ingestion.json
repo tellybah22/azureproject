@@ -32,6 +32,54 @@
 					},
 					"firstRowOnly": false
 				}
+			},
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "getAllTableProperties",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('getAllTableProperties').output.value",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "fromSQLToAzure",
+							"type": "ExecutePipeline",
+							"dependsOn": [],
+							"policy": {
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"pipeline": {
+									"referenceName": "incremental_ingestion",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": false,
+								"parameters": {
+									"schema": "dbo",
+									"table": {
+										"value": "@item().tableName",
+										"type": "Expression"
+									},
+									"cdc_col": {
+										"value": "@item().cdcCol",
+										"type": "Expression"
+									}
+								}
+							}
+						}
+					]
+				}
 			}
 		],
 		"annotations": []

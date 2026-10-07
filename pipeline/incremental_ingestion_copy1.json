@@ -1,5 +1,5 @@
 {
-	"name": "incremental_ingestion",
+	"name": "incremental_ingestion_copy1",
 	"properties": {
 		"activities": [
 			{
@@ -31,10 +31,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"container": "bronze",
-							"folder": {
-								"value": "cdc_@{pipeline().parameters.cdc_folder}",
-								"type": "Expression"
-							},
+							"folder": "cdc",
 							"file": "cdc.json"
 						}
 					}
@@ -259,10 +256,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"container": "bronze",
-										"folder": {
-											"value": "cdc_@{pipeline().parameters.cdc_folder}",
-											"type": "Expression"
-										},
+										"folder": "cdc",
 										"file": "cdc.json"
 									}
 								}
@@ -312,9 +306,6 @@
 				"type": "string"
 			},
 			"from_date": {
-				"type": "string"
-			},
-			"cdc_folder": {
 				"type": "string"
 			}
 		},
