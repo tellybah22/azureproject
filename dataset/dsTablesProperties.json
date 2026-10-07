@@ -1,0 +1,30 @@
+{
+	"name": "dsTablesProperties",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "datalake",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "tablesProperties.json",
+				"folderPath": "tablesProperties",
+				"fileSystem": "bronze"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"tableName": {
+					"type": "string"
+				},
+				"cdcCol": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}
