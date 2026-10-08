@@ -11,7 +11,26 @@
 					"items": {
 						"value": "@pipeline().parameters.list_table",
 						"type": "Expression"
-					}
+					},
+					"activities": [
+						{
+							"name": "Set variable1",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "param",
+								"value": {
+									"value": "@item().tableName",
+									"type": "Expression"
+								}
+							}
+						}
+					]
 				}
 			}
 		],
@@ -40,6 +59,11 @@
 						"cdcCol": "stream_timestamp"
 					}
 				]
+			}
+		},
+		"variables": {
+			"param": {
+				"type": "String"
 			}
 		},
 		"annotations": []
